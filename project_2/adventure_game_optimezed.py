@@ -46,20 +46,6 @@ def input_validate(message, options):
         print_sleep([f'Sorry, the option "{option}" is invalid'])
 
 
-""" Validation for integer values
-:param message: The massage displayed options: List of options
-:return: the given value
-Provided by the Reviewer of Udacity"""
-
-
-def input_validate_integer(message, options):
-    while True:
-        option = input(message + '\n').lower()
-        if option in options:
-            return option
-        print_sleep([f'Sorry, the option "{option}" is invalid'])
-
-
 """ Win message
 :param animal
 :return: string (response)"""
