@@ -1,27 +1,27 @@
 import random
 import time
 
-# @title randomize animal using choice method
-# @params none
-# @return string
+""" Randomize animal using choice method
+:param none
+:return: string"""
 
 
 def animal_choice():
     animals = ['Green Anaconda', 'Bull Shark', 'crocodile']
     return random.choice(animals)
 
-# @title randomize animal using randint method
-# @params none
-# @return string
+""" Randomize animal using randint method
+:param none
+:return: string"""
 
 
 def animal_randint():
     animals = ['Lion', 'Zebra', 'Jaguar', 'Black Caiman']
     return animals[random.randint(0, len(animals) - 1)]
 
-# @title print the messages
-# @params array of messages
-# @return the given value
+""" Print the messages
+:param array: List of messages
+:return: void"""
 
 
 def print_sleep(messages):
@@ -29,10 +29,10 @@ def print_sleep(messages):
         print(message)
         time.sleep(0.75)
 
-# @title validation for input values
-# @params string message
-# @return the given value
-# Provided by the Reviewer of Udacity
+""" Validation for input values
+:param message: The massage displayed options: List of options
+:return: the given value
+Provided by the Reviewer of Udacity"""
 
 
 def input_validate(message, options):
@@ -42,9 +42,9 @@ def input_validate(message, options):
             return option
         print_sleep([f'Sorry, the option "{option}" is invalid'])
 
-# @title win message
-# @params animal
-# @return the given value
+""" Win message
+:param animal
+:return: string (response)"""
 
 
 def win(animal):
@@ -53,9 +53,9 @@ def win(animal):
     return input_validate(
         'Press (q) to leave the play or (1) to play again', ['1', 'q'])
 
-# @title case loose
-# @params animal
-# @return string
+""" Case loose
+:param animal
+:return: string"""
 
 
 def lose(animal):
@@ -65,9 +65,9 @@ def lose(animal):
     return input_validate(
         'Press (q) to leave the play or (1) to play again', ['1', 'q'])
 
-# @title play again
-# @params option
-# @return void
+""" Play again
+:param option
+:return: void"""
 
 
 def play_again(option):
@@ -75,9 +75,9 @@ def play_again(option):
         print_sleep(['Thanks for playing! See you later!'])
         exit(0)
 
-# @title The base logic are here
-# @params none
-# @return string
+""" The base logic are here
+:param void:
+:return: string"""
 
 
 def main():
