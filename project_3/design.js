@@ -87,13 +87,11 @@ function addTable() {
     
     if (typeof dimentions !== 'undefined') {
         var table = createTable(dimentions.width, dimentions.height);
-        var textButton = document.getElementById('submit');
         
         if (tableBody === null) {
             divContainer.appendChild(table);
         } else {
-            pixelCanvas.removeChild(tableBody);
-            // divContainer.removeChild(table);
+            divContainer.removeChild(pixelCanvas);
         }
     }
 }
