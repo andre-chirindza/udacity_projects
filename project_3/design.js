@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", init, false);
 function getDimentions() {
     var width = document.getElementById("pixel-width");
     var height = document.getElementById("pixel-height");
-    
+
     if (typeof width.value === 'undefined' || typeof height.value === 'undefined' ||
         parseInt(width.value) < 1 || parseInt(height.value) < 1) {
         width.classList.add("alert-danger");
@@ -39,7 +39,14 @@ function getDimentions() {
  * @returns {object} table
  */
 function createTable(rows, columns) {
-    var table = document.getElementById("pixelCanvas");
+    if (document.getElementById("pixelCanvas") === null ) {
+        
+        var table = document.createElement("table");
+        table.setAttribute('id', 'pixelCanvas');
+
+    } else {
+        var table = document.getElementById("pixelCanvas");
+    }
 
     //Styling the table
     table.setAttribute("class", "table table-bordered mt-10");
@@ -80,12 +87,13 @@ function addTable() {
     
     if (typeof dimentions !== 'undefined') {
         var table = createTable(dimentions.width, dimentions.height);
+        var textButton = document.getElementById('submit');
         
         if (tableBody === null) {
             divContainer.appendChild(table);
         } else {
             pixelCanvas.removeChild(tableBody);
-            divContainer.appendChild(table);
+            // divContainer.removeChild(table);
         }
     }
 }
@@ -112,7 +120,20 @@ function addEventListeners(td) {
  * @returns void
  */
 function design() {
+    var submitButton = document.getElementById('submit');
+    if (submitButton.textContent === "Submit") {
+        submitButton.textContent = "Clean";
+        submitButton.classList.remove('btn-success')
+        submitButton.classList.add('btn-danger')
+    } else {
+        submitButton.textContent = "Submit";
+        submitButton.classList.remove('btn-danger')
+        submitButton.classList.add('btn-success')
+    }
+    
+    
     addTable()
+
 }
 
 /**
